@@ -1,5 +1,19 @@
 <?php
+  //
+  if (filter_has_var(INPUT_POST, 'submit')) {
+    // Get form data
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $message = $_POST['message'];
 
+    // Check Required fields
+    if (!empty($email) && !empty($name) && !empty($message)) {
+      //passed
+    } else {
+      //failed
+    };
+
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +49,7 @@
         <textarea class="form-control" name="message" placeholder="Leave a message. . .">
         </textarea>
       </div>
-      <button type="submit" name="Submit" class="btn btn-primary">Submit</button>
+      <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
 </body>
