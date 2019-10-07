@@ -1,5 +1,8 @@
 <?php
-  //
+  // Message Vars
+  $msg = '';
+  $msgClass = '';
+
   if (filter_has_var(INPUT_POST, 'submit')) {
     // Get form data
     $email = $_POST['email'];
@@ -9,10 +12,12 @@
     // Check Required fields
     if (!empty($email) && !empty($name) && !empty($message)) {
       //passed
+      echo 'Passed!';
     } else {
       //failed
+      $msg = "Please fill in all fields";
+      $msgClass = 'alert-danger';
     };
-
   }
 ?>
 <!DOCTYPE html>
@@ -34,6 +39,9 @@
   </nav>
 
   <div class="container mt-4">
+    <?php if($msg != ''): ?>
+      <div class="<?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+    <?php endif; ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
       <h1>Contact Us</h1>
       <div class="form-group">
