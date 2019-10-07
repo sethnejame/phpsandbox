@@ -1,8 +1,8 @@
 <?php
   if (isset($_POST['submit'])) {
-    $username =htmlentities($_POST['username']);
+    $username = htmlentities($_POST['username']);
 
-    setcookie('username_cookie', $username, time()+3600); // set cookie for 1 hour
+    setcookie('username', $username, time()+3600); // set cookie for 1 hour
 
     header('Location: page2.php');
   }
@@ -18,11 +18,11 @@
 </head>
 <body>
   <div class="container mt-4">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <h1>PHP Cookies- Page 1</h1>
       <div class="form-group">
         <label for="name">Username</label>
-        <input type="text" class="form-control" name="name" placeholder="Username">
+        <input type="text" class="form-control" name="username" placeholder="Username">
       </div>
       <button type="submit" name="submit" value="Submit" class="btn btn-primary mb-2">Submit</button>
     </form>
