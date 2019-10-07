@@ -20,7 +20,7 @@
   </nav>
 
   <div class="container mt-4">
-    <form method="post" action="">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
       <h1>Contact Us</h1>
       <div class="form-group">
         <label for="name">Name</label>
