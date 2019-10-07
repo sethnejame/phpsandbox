@@ -46,6 +46,38 @@
   rmdir('testing');
 
   // Copy file
-  echo copy('file.txt', 'copiedfile.txt');
+  copy('file.txt', 'copiedfile.txt');
+
+  // Rename file
+  rename('file2.txt', 'myfile.txt');
+
+  // Delete file
+  unlink('myfile.txt');
+
+  // Write from file to string
+  echo file_get_contents($file);
+  echo '<br>';
+
+  // Write string to file
+  echo file_put_contents($file, 'Goodbye, cruel world!');
+  echo '<br>';
+
+  // Append string to file
+  $current = file_get_contents($file);
+  $current .= " Another goodbye!";
+  file_put_contents($file, $current);
+
+  // Open file for reading
+  $handle = fopen($file, 'r'); // r for 'read'
+  $data = fread($handle, filesize($file));
+  fclose($handle);
+  echo $data;
+  echo '<br>';
+
+  // Open file for writing
+  $handle = fopen('file2.txt', 'w'); // create a new file named 'file2.txt', use w for 'write'
+  $text = "And hello again!";
+  fwrite($handle, $text);
+  fclose($handle);
 
 ?>
