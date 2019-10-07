@@ -3,7 +3,7 @@
 
   $name = $_SESSION['name'];
   $email = $_SESSION['email'];
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +15,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-
+  <h5>Thank you <?php echo $name; ?>.  You have subscribed with the email <?php echo $email; ?>.</h5>
 </body>
 </html>
