@@ -16,8 +16,29 @@
         $msg = "Invalid Email Address";
         $msgClass = 'alert-danger';
       } else {
-        //pass
-        echo 'Passed!';
+
+        // Email validation passed, send an email
+        $toEmail = 'seth@mondido.com';
+        $subject = 'Contact Request From '.$name;
+        $body = '<h2>Contact Requests</h2>
+                  <h4>Name</h4><p>'.$name.'</p>
+                  <h4>Email</h4><p>'.$email.'</p>
+                  <h4>Message</h4><p>'.$message.'</p>';
+        // Email Headers
+        $headers = "MIME-Versoin: 1.0" ."\r\n"; // carriage return (email headers formatting)
+        $headers = "Content-Type:text/html;charset=UTF-8" . "\r\n";
+
+        // Additional Headers
+        $headers = "From: " .$name. "<".$email.">". "\r\n";
+
+        // Try to send email, report status if success/fail
+        if(mail($toEmail, $subject, $body, $headers)) {
+          $msg = "Your email was sent successfully.";
+          $msgClass = 'alert-success';
+        }else{
+          $msg = "Your email wasn't sent!";
+          $msgClass = 'alert-danger';
+        }
       }
     } else {
       //failed
