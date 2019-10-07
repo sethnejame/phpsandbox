@@ -5,14 +5,20 @@
 
   if (filter_has_var(INPUT_POST, 'submit')) {
     // Get form data
-    $email = $_POST['email'];
-    $name = $_POST['name'];
-    $message = $_POST['message'];
+    $email = htmlspecialchars($_POST['email']);
+    $name = htmlspecialchars($_POST['name']);
+    $message = htmlspecialchars($_POST['message']);
 
     // Check Required fields
     if (!empty($email) && !empty($name) && !empty($message)) {
-      //passed
-      echo 'Passed!';
+      // Check email
+      if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        $msg = "Invalid Email Address";
+        $msgClass = 'alert-danger';
+      } else {
+        //pass
+        echo 'Passed!';
+      }
     } else {
       //failed
       $msg = "Please fill in all fields";
@@ -40,22 +46,21 @@
 
   <div class="container mt-4">
     <?php if($msg != ''): ?>
-      <div class="<?php echo $msgClass; ?>"><?php echo $msg; ?></div>
+      <div class="alert <?php echo $msgClass; ?>"><?php echo $msg; ?></div>
     <?php endif; ?>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
       <h1>Contact Us</h1>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" value="" name="name" placeholder="Name">
+        <input type="text" class="form-control" value="<?php echo isset($_POST['name']) ? $name : '' ?>" name="name" placeholder="Name">
       </div>
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="text" class="form-control" value="" name="email" placeholder="Email">
+        <input type="text" class="form-control" value="<?php echo isset($_POST['email']) ? $email : '' ?>" name="email" placeholder="Email">
       </div>
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea class="form-control" name="message" placeholder="Leave a message. . .">
-        </textarea>
+        <textarea class="form-control" name="message"><?php echo isset($_POST['message']) ? $message : '' ?></textarea>
       </div>
       <button type="submit" name="submit" class="btn btn-primary">Submit</button>
     </form>
