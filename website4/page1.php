@@ -4,6 +4,8 @@
 
     $_SESSION['name'] = htmlentities($_POST['name']);
     $_SESSION['email'] = htmlentities($_POST['email']);
+
+    header('Location: page2.php');
   }
 ?>
 <!DOCTYPE html>
@@ -12,7 +14,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PHP Sessions</title>
+  <title>PHP Sessions - Page 1</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
