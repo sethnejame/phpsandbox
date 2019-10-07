@@ -31,6 +31,7 @@
       </div>
       <button type="submit" name="submit" value="Submit" class="btn btn-primary">Submit</button>
     </form>
+  <a href="page1.php">Go to Page 1</a>
   </div>
 </body>
 </html>

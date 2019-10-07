@@ -1,6 +1,8 @@
 <?php
   session_start();
 
+  print_r($_SESSION);
+
   $name = $_SESSION['name'];
   $email = $_SESSION['email'];
 
@@ -11,11 +13,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>PHP Sessions - Page 2</title>
+  <title>PHP Sessions - Page 3</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <h5>Thank you <?php echo $name; ?>.  You have subscribed with the email <?php echo $email; ?>.</h5>
-  <a href="page3.php">Go to Page 3</a>
+  <h1>Hello, <?php echo $name; ?>!</h1>
+  <h1>Your email is <?php echo $email; ?>.</h1>
+  <a href="page4.php">Go to Page 4</a>
 </body>
 </html>
