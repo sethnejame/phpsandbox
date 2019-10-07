@@ -76,8 +76,10 @@
 
   // Open file for writing
   $handle = fopen('file2.txt', 'w'); // create a new file named 'file2.txt', use w for 'write'
-  $text = "And hello again!";
+  $text = "And hello again!\n";
   fwrite($handle, $text);
+  $text2 = "Just writing more stuff to this file. . .\n";
+  fwrite($handle, $text2);
   fclose($handle);
 
 ?>
