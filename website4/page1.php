@@ -1,3 +1,11 @@
+<?php
+  if (isset($_POST['submit'])) {
+    session_start(); // Start the session
+
+    $_SESSION['name'] = htmlentities($_POST['name']);
+    $_SESSION['email'] = htmlentities($_POST['email']);
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
