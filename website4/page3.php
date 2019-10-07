@@ -3,8 +3,8 @@
 
   print_r($_SESSION);
 
-  $name = $_SESSION['name'];
-  $email = $_SESSION['email'];
+  $name = isset($_SESSION['name']) ?$_SESSION['name'] : 'Guest';
+  $email = isset($_SESSION['email']) ?$_SESSION['email'] : 'not subscribed.';
 
 ?>
 <!DOCTYPE html>
